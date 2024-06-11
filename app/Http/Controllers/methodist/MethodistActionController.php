@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\employee;
+namespace App\Http\Controllers\methodist;
 
 use App\Http\Controllers\Controller;
-use App\Models\Classroom;
-use App\Models\Employee;
+use App\Models\Methodist;
 use Illuminate\Http\Request;
 
-class EmployeeActionController extends Controller
+class MethodistActionController extends Controller
 {
     public function store(Request $request) {
         $validated = $request->validate(['user_id' => 'required|int|max:255']);
-        Employee::create($validated);
+        Methodist::create($validated);
         return redirect()->back();
     }
 
     public function forceDelete($id) {
-        Employee::findOrFail($id)->delete();
+        Methodist::findOrFail($id)->delete();
         return redirect()->back();
     }
 }
